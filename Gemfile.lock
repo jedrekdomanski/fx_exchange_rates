@@ -2,13 +2,17 @@ PATH
   remote: .
   specs:
     exchange_rate (0.1.0)
+      nokogiri
       whenever (~> 0.10.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
     chronic (0.10.2)
+    mini_portile2 (2.3.0)
     minitest (5.11.3)
+    nokogiri (1.8.5)
+      mini_portile2 (~> 2.3.0)
     rake (10.5.0)
     whenever (0.10.0)
       chronic (>= 0.6.3)

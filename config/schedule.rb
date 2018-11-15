@@ -5,14 +5,11 @@
 
 # Example:
 #
-set :output, "../cron_log.log"
+set :output, "cron_log.log"
 set :environment, 'development'
 
 every 1.minute do
-   rake "task_to_run_each_day"
+  rake 'fetch_data_and_save_to_disk'
 end
-#every 1.day, at: ['8:00 am'] do
- #  rake "ExchangeRate:task_to_run_each_day"
-#end
 
 # Learn more: http://github.com/javan/whenever

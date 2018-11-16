@@ -8,3 +8,4 @@
 /tmp/
 *.gem
 *.log
+lib/exchange_rate/rates.yaml

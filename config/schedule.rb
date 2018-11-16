@@ -8,7 +8,7 @@
 set :output, "cron_log.log"
 set :environment, 'development'
 
-every 1.minute do
+every 1.day, at: '4:15 pm' do
   rake 'fetch_data_and_save_to_disk'
 end
 

@@ -19,7 +19,7 @@ class Base
 
   def load_data
     rates_file = "#{File.join(File.dirname(__FILE__))}/rates.yaml"
+    ExchangeRate.fetch_data_and_save_to_disk unless File.exists?(rates_file)
     YAML.load_file(rates_file)
   end
 end
-

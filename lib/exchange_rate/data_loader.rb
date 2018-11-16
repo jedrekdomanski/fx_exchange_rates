@@ -9,13 +9,11 @@ module DataLoader
     rates = parse_response(response)
     if response
       rates_file = "#{File.join(File.dirname(__FILE__))}/rates.yaml"
-      File.open(file, 'w') do |file| 
+      File.open(rates_file, 'w') do |file| 
         file.truncate(0)
         file << rates.to_yaml
       end
     end
-    # dir = "#{File.join(File.dirname(__FILE__))}/rates.yaml"
-    # File.open(dir, 'w') { |f| f << rates.to_yaml}
   end
 
   private

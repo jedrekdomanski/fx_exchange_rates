@@ -10,8 +10,9 @@ end
 
 desc 'update exchange rates'
 task :fetch_data_and_save_to_disk do
-  puts 'Testing...'
-  # ExchangeRate.fetch_data(options).deliver!
+  puts 'Fetching latest data...'
+  ExchangeRate.fetch_data_and_save_to_disk
+  puts 'Data has been updated...'
 end
 
 task :default => :test

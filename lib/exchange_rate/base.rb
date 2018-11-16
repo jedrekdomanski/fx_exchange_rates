@@ -10,6 +10,8 @@ class Base
   end
 
   def rates_at(date, currency)
+    raise KeyError, 'Date not available' unless dates.include?(date)
+    raise KeyError, "#{currency} currency not found" unless currencies.include?(currency)
     rates[date][currency]
   end
 

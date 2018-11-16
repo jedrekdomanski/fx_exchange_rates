@@ -10,9 +10,27 @@ module ExchangeRate
     other_rate / base_rate
   end
 
+  def available_currencies
+    Base.new.currencies
+  end
+
+  def available_dates
+    Base.new.dates
+  end
+
+  def most_recent
+    data = Base.new
+    latest_date = data.dates.first
+    data.rates[latest_date]
+  end
+
   def fetch_data_and_save_to_disk
     DataLoader.save_to_disk
   end
 
-  module_function :at, :fetch_data_and_save_to_disk
+  module_function :at,
+                  :fetch_data_and_save_to_disk,
+                  :available_currencies,
+                  :available_dates,
+                  :most_recent
 end

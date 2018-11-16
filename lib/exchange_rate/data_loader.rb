@@ -7,8 +7,15 @@ module DataLoader
     url = 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml'
     response = Nokogiri::XML(open(url))
     rates = parse_response(response)
-    dir = "#{File.join(File.dirname(__FILE__))}/rates.yaml"
-    File.open(dir, 'w') { |f| f << rates.to_yaml}
+    if response
+      rates_file = "#{File.join(File.dirname(__FILE__))}/rates.yaml"
+      File.open(file, 'w') do |file| 
+        file.truncate(0)
+        file << rates.to_yaml
+      end
+    end
+    # dir = "#{File.join(File.dirname(__FILE__))}/rates.yaml"
+    # File.open(dir, 'w') { |f| f << rates.to_yaml}
   end
 
   private

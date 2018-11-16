@@ -1,11 +1,14 @@
 require 'open-uri'
 require 'nokogiri'
+require 'yaml'
 
 module DataLoader
   def save_to_disk
     url = 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml'
     response = Nokogiri::XML(open(url))
-    rate = parse_response(response)
+    rates = parse_response(response)
+    dir = "#{File.join(File.dirname(__FILE__))}/rates.yaml"
+    File.open(dir, 'w') { |f| f << rates.to_yaml}
   end
 
   private
@@ -24,3 +27,4 @@ module DataLoader
 
   module_function :save_to_disk, :parse_response
 end
+

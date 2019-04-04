@@ -1,17 +1,14 @@
 require "exchange_rate/version"
 require "exchange_rate/data_loader"
 require "exchange_rate/base"
-require "bigdecimal"
 
 module ExchangeRate
   def at(date, base, other)
     date = set_format_of(date)
     ex_rates = Base.new
     base_rate = ex_rates.rates_at(date, base)
-    base = BigDecimal(base_rate.to_s)
-    other = ex_rates.rates_at(date, other)
-    other_rate = BigDecimal(other.to_s)
-    other_rate / base
+    other_rate = ex_rates.rates_at(date, other)
+    other_rate / base_rate
   end
 
   def available_currencies

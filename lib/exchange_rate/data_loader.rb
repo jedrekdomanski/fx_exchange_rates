@@ -1,6 +1,7 @@
 require 'open-uri'
 require 'nokogiri'
 require 'yaml'
+require 'bigdecimal'
 
 module DataLoader
   def save_to_disk
@@ -24,7 +25,7 @@ module DataLoader
       time = day[:time]
       rates[time] = {}
       day.css('Cube').each do |currency|
-        rates[time][currency[:currency]] = currency[:rate].to_f
+        rates[time][currency[:currency]] = BigDecimal(currency[:rate].to_s)
       end
     end
     rates
@@ -32,4 +33,3 @@ module DataLoader
 
   module_function :save_to_disk, :parse_response
 end
-

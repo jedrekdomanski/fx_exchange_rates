@@ -6,11 +6,11 @@ require "exchange_rate/version"
 Gem::Specification.new do |spec|
   spec.name          = "exchange_rate"
   spec.version       = ExchangeRate::VERSION
-  spec.authors       = ["Ana Costache"]
-  spec.email         = ["ana.florina.m@gmail.com"]
+  spec.authors       = ["Jędrzej Domański"]
+  spec.email         = ["jedrek.domanski@gmail.com"]
 
   spec.summary       = %q{A gem for obtaining FX rates.}
-  spec.homepage      = "https://github.com/AnaCostache/exchange_rate"
+  spec.homepage      = "https://github.com/jedrekdomanski/fx_exchange_rates"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
